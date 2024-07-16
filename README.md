@@ -1,2 +1,64 @@
 # Kafka-Cluster-Docker
- Run Cluster Apache Kafka with Zookeeper in Docker
+
+*#kafka #docker #cluster*
+
+![1721118044114](image/README/1721118044114.png)
+
+### Run an Apache Kafka cluster with Zookeeper in Docker.
+
+In this repository, we develop a Docker yaml file that hosts a Kafka cluster with three brokers, which are managed by Zookeeper. Also, we create a topic named "eventsTopic" that is created by the yaml file. Please follow the commands step by step:
+
+
+Run the command in Linux CLI:
+
+```
+sudo nano /etc/wsl.conf
+```
+
+
+
+Add two lines in wsl.conf, save and exit.
+
+```
+[network]
+generateHosts = false
+```
+
+Next step, you must set local host names:
+
+```
+sudo nano /etc/hosts
+```
+
+
+
+Set Host names (a mini DNS server) and after that save and exit:
+
+```
+127.0.0.1       kafka0
+127.0.0.1       kafka1
+127.0.0.1       kafka2
+```
+
+
+
+Finaly run Docker yaml file:
+
+```
+docker-compose up -d
+```
+
+
+Now, your server is running.
+
+To connect to the server and produce, First run *user_event_producer.py* file in Linux CLI. After that in new Linux CLI run *user_event_consumer.py* file.
+
+Congratulations, in your local you can produce and use kafka cluster in Docker .
+
+---
+
+*Acknowledgment,*
+
+I would like to thank my teacher, *[Dr. Mohammad Fozouni](https://www.linkedin.com/in/fozouni/)* (Faculty at GKU | Data Engineering with AWS). I will never be able to thank you enough for your daily support. I admire you.
+
+---
