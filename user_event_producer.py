@@ -6,14 +6,14 @@ import time
 import uuid
 
 
+TOPIC_NAME = 'eventsTopic'
 EVENT_TYPE_LIST = ['buy', 'sell', 'click', 'hover', 'idle_5']
 
 producer = KafkaProducer(
-   bootstrap_servers=['kafka0:9093','kafka1:9094','kafka2:9095'],
+   bootstrap_servers=['localhost:9092', 'localhost:9093', 'localhost:9094'],
    value_serializer=lambda msg: json.dumps(msg).encode('utf-8'), 
    key_serializer=str.encode)
 
-TOPIC_NAME = 'eventsTopic'
 
 def produce_event():
     return {
@@ -28,6 +28,7 @@ def send_events():
         producer.send(TOPIC_NAME, value=data, key=data['event_id'])
         print(f"Event Created : {data['event_id']}")
         time.sleep(3)
+
 
 if __name__ == '__main__':
     send_events()
