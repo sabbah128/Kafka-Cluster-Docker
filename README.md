@@ -25,7 +25,9 @@ If needed set Host names (a mini DNS server) and after that save and exit (optio
 
 ```
 sudo nano /etc/hosts
+```
 
+```
 127.0.0.1       kafka1
 127.0.0.1       kafka2
 127.0.0.1       kafka3
