@@ -31,6 +31,8 @@ sudo nano /etc/hosts
 127.0.0.1       kafka1
 127.0.0.1       kafka2
 127.0.0.1       kafka3
+
+source ~/.bashrc
 ```
 
 Create the necessary directories in your current working directory:
