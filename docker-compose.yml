@@ -99,14 +99,14 @@ services:
     command: |
       "
       echo -e '>>> Creating kafka topics.'
-      kafka-topics --bootstrap-server kafka1:29092 --create --if-not-exists --topic eventsTopic --replication-factor 3 --partitions 3
+      kafka-topics --bootstrap-server kafka1:29092 --create --if-not-exists --topic ${TOPIC_NAME} --replication-factor 3 --partitions 3
       echo -e '>>> Successfully created the following topics.'
 
       echo -e '>>> The Kafka topic list.'
       kafka-topics --bootstrap-server kafka1:29092 --list
 
       echo -e 'Describing topic:'
-      kafka-topics --bootstrap-server kafka1:29092 --describe --topic eventsTopic
+      kafka-topics --bootstrap-server kafka1:29092 --describe --topic ${TOPIC_NAME}
       "
 
 volumes:
